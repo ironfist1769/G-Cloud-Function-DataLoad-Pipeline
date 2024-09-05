@@ -37,10 +37,11 @@ To install the dependencies, run:
 ```sh
 pip install -r requirements.txt
 ```
-Deployment
+### Deployment
 Zip the project folder, including main.py, load_data_bq.py, read_files_gcs.py, and requirements.txt.
 
-Deploy the Cloud Function using the following command:
+**Deploy the Cloud Function using the following command:**
+```
 gcloud functions deploy gcs_to_bigquery \
     --runtime python311 \
     --trigger-resource YOUR_BUCKET_NAME \
@@ -48,11 +49,13 @@ gcloud functions deploy gcs_to_bigquery \
     --entry-point gcs_to_bigquery \
     --memory 256MB \
     --region YOUR_REGION
-Replace YOUR_BUCKET_NAME with the name of your GCS bucket and YOUR_REGION with the appropriate region for your function.
+```
+Replace `YOUR_BUCKET_NAME` with the name of your GCS bucket and `YOUR_REGION` with the appropriate region for your function.
 
-Functionality
-Trigger: The function is triggered by file uploads or changes in the specified GCS bucket.
-Processing: Reads the file from GCS, converts it to a Pandas DataFrame, and loads it into the specified BigQuery table.
+### Functionality
+**Trigger**: The function is triggered by file uploads or changes in the specified GCS bucket.
+**Processing**: Reads the file from GCS, converts it to a Pandas DataFrame, and loads it into the specified BigQuery table.
+
 Notes
 Ensure that the Cloud Function has the necessary permissions to read from GCS and write to BigQuery.
 Adjust the memory settings as needed based on the size of your data.
