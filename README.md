@@ -36,7 +36,7 @@ To install the dependencies, run:
 
 ```sh
 pip install -r requirements.txt
-
+```
 Deployment
 Zip the project folder, including main.py, load_data_bq.py, read_files_gcs.py, and requirements.txt.
 
